@@ -23,12 +23,16 @@ export class RegisterComponent {
   ])
   password = new FormControl('', [
     Validators.required,
-    Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)
+    Validators.pattern(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/)
   ])
   confirm_password = new FormControl('', [
     Validators.required
   ])
-  phoneNumber = new FormControl('')
+  phoneNumber = new FormControl('', [
+    Validators.required,
+    Validators.minLength(14),
+    Validators.maxLength(14)
+  ])
 
   registerForm = new FormGroup({
     name: this.name,
