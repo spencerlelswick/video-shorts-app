@@ -23,7 +23,6 @@ import { AlertComponent } from './alert/alert.component';
     CommonModule,
     ReactiveFormsModule,
     NgxMaskDirective,
-    FormsModule
   ],
   exports: [
     ModalComponent,
