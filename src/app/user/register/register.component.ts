@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import IUser from '../../models/user.model';
 import { RegisterValidators } from '../validators/register-validators';
+import { EmailTaken } from '../validators/email-taken';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { RegisterValidators } from '../validators/register-validators';
 })
 export class RegisterComponent {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private emailTaken: EmailTaken) { }
 
   showAlert = false;
   alertMsg = 'Please wait, your account is being created.'
@@ -26,7 +27,7 @@ export class RegisterComponent {
   email = new FormControl('', [
     Validators.required,
     Validators.email
-  ])
+  ], [this.emailTaken.validate])
   age = new FormControl('', [
     Validators.required,
     Validators.min(18),
