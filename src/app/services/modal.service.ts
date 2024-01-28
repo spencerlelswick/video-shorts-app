@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
+import { IModal } from '../models/modal.model';
 
-interface IModal {
-  id: string;
-  visible: boolean;
-}
 
 @Injectable({
   providedIn: 'root'
