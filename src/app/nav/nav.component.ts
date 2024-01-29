@@ -13,7 +13,7 @@ export class NavComponent {
 
   public isAuthenticated = false
 
-  constructor(public modal: ModalService, public auth: AuthService, private afAuth: AngularFireAuth, private router: Router) {
+  constructor(public modal: ModalService, public auth: AuthService, private afAuth: AngularFireAuth) {
     this.auth.isAuthenticated$.subscribe(status => {
       this.isAuthenticated = status
     })
@@ -24,9 +24,5 @@ export class NavComponent {
     this.modal.toggleModal('auth')
   }
 
-  async logout($event: Event) {
-    $event.preventDefault
-    await this.afAuth.signOut()
-    await this.router.navigateByUrl('/')
-  }
+
 }
