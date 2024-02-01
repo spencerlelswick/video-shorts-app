@@ -18,13 +18,6 @@ const routes: Routes = [
     data: {
       authOnly: true
     }
-  },
-  {
-    path: 'clip/:id',
-    component: ClipComponent,
-    data: {
-      authOnly: true
-    }
   }
 ];
 
